@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="json-default">
+        <action name="pay" class="com.sunkai.demo.ChargeAction" method="pay">
+            <interceptor-ref name="json"/>
+            <result name="success" type="json">
+                <param name="root">charge</param>
+            </result>
+        </action>
+        <action name="webhooks" class="com.sunkai.demo.Webhooks" method="webhook">
+            <result name="success" type="json">
+                <param name="root">200</param>
+            </result>
+        </action>
+    </package>
+</struts>
