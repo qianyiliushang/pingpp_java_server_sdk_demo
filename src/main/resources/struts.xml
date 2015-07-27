@@ -6,6 +6,7 @@
 
 <struts>
     <package name="default" namespace="/" extends="json-default">
+        <default-action-ref name="index"/>
         <action name="pay" class="com.sunkai.demo.ChargeAction" method="pay">
             <interceptor-ref name="json"/>
             <result name="success" type="json">
@@ -14,8 +15,11 @@
         </action>
         <action name="webhooks" class="com.sunkai.demo.Webhooks" method="webhook">
             <result name="success" type="json">
-                <param name="root">200</param>
+                <param name="root">/result.jsp</param>
             </result>
+        </action>
+        <action name="index">
+            <result>/index.jsp</result>
         </action>
     </package>
 </struts>
