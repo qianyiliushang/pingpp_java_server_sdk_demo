@@ -5,6 +5,10 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    <constant name="struts.multipart.maxSize" value="1000000000" />
+
     <package name="default" namespace="/" extends="json-default">
         <default-action-ref name="index"/>
         <action name="pay" class="com.sunkai.demo.ChargeAction" method="pay">
@@ -20,6 +24,10 @@
         </action>
         <action name="index">
             <result>/index.jsp</result>
+        </action>
+        <action name="upload" class="com.sunkai.demo.UploadFile" method="execute">
+            <result name="success">/fileUploadResult.jsp</result>
+            <param name="maximumSize">30000000</param>
         </action>
     </package>
 </struts>
